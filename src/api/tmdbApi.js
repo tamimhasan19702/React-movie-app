@@ -17,7 +17,7 @@ export const tvType = {
     on_the_air: 'on_the_air'
 }
 
-const tmbdApi = {
+const tmdbApi = {
     getMovieList: (type,params) => {
         const url = 'movie/' + movieType[type];
         return axiosClient.get(url, params);
@@ -48,4 +48,4 @@ const tmbdApi = {
     }
 }
 
-export default tmbdApi;
+export default tmdbApi;
