@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import SwiperCore, { Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import tmdbApi, { category, movieType } from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
-
 import './hero-slide.scss';
+import { useHistory } from 'react-router-dom';
+import Button, {OutLineButton} from '../button/Button';
 
 
 const HeroSlide = () => {
@@ -36,17 +36,54 @@ const HeroSlide = () => {
             grabCursor={true}
             spaceBetween={0}
             slidesPerView={1}
+            autoplay={{delay: 4000}}
       >
          {
           movieItems.map((item,i) => (
             <SwiperSlide key={i}>
                 {({ isActive }) => (
-                  <img src={apiConfig.originalImage(item.backdrop_path)} alt="img" />
+                  <HeroSlideItem item={item} className={`${isActive ? 'active' : '' }`}/>
                 )}
             </SwiperSlide>
           ))
          }
       </Swiper>
+    </div>
+  )
+}
+
+
+
+const HeroSlideItem = props => {
+  let history = useHistory();
+
+  const item = props.item;
+
+  const background = apiConfig.originalImage(item.backdrop_path ? item.backdrop_path : item.poster_path );
+
+  return (
+    <div 
+    className={`hero-slide_item ${props.className}`}
+    style={{backgroundImage: `url(${background})`}}
+    >
+
+    <div className="hero-slide-item-content container">
+        <div className="hero-slide-item-content-info">
+             <h2 className='title'>{item.title}</h2>
+             <div className="overview">{item.overview}</div>
+             <div className="btns">
+           <Button onClick={() => history.push('/movie/' + item.id)}>
+              Watch Now
+           </Button>
+           <OutLineButton onClick={() => console.log('trailer')}>
+            Watch Trailer
+           </OutLineButton>
+             </div>
+            </div>
+         <div className="hero-slide-item-content-poster">
+          <img src={apiConfig.w500Image(item.poster_path)}  alt="poster image" />
+         </div>
+      </div>
     </div>
   )
 }
