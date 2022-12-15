@@ -1,3 +1,5 @@
+
+
 const apiConfig = {
     baseUrl: 'https://api.themoviedb.org/3/',
     apiKey: '404fa460f74efc817516c4d2d489c40a',
