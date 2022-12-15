@@ -36,7 +36,7 @@ const HeroSlide = () => {
             grabCursor={true}
             spaceBetween={0}
             slidesPerView={1}
-            autoplay={{delay: 4000}}
+            // autoplay={{delay: 3500}}
       >
          {
           movieItems.map((item,i) => (
@@ -55,6 +55,7 @@ const HeroSlide = () => {
 
 
 const HeroSlideItem = props => {
+
   let history = useHistory();
 
   const item = props.item;
@@ -62,29 +63,28 @@ const HeroSlideItem = props => {
   const background = apiConfig.originalImage(item.backdrop_path ? item.backdrop_path : item.poster_path );
 
   return (
-    <div 
-    className={`hero-slide_item ${props.className}`}
-    style={{backgroundImage: `url(${background})`}}
-    >
-
-    <div className="hero-slide-item-content container">
-        <div className="hero-slide-item-content-info">
-             <h2 className='title'>{item.title}</h2>
-             <div className="overview">{item.overview}</div>
-             <div className="btns">
-           <Button onClick={() => history.push('/movie/' + item.id)}>
-              Watch Now
-           </Button>
-           <OutLineButton onClick={() => console.log('trailer')}>
-            Watch Trailer
-           </OutLineButton>
-             </div>
+    <div
+            className={`hero-slide__item ${props.className}`}
+            style={{backgroundImage: `url(${background})`}}
+        >
+            <div className="hero-slide__item__content container">
+                <div className="hero-slide__item__content__info">
+                    <h2 className="title">{item.title}</h2>
+                    <div className="overview">{item.overview}</div>
+                    <div className="btns">
+                        <Button onClick={() => history.push('/movie/' + item.id)}>
+                            Watch now
+                        </Button>
+                        <OutLineButton onClick={() => console.log('a')}>
+                            Watch trailer
+                        </OutLineButton>
+                    </div>
+                </div>
+                <div className="hero-slide-item-content-poster">
+                    <img src={apiConfig.w500Image(item.poster_path)} alt="" />
+                </div>
             </div>
-         <div className="hero-slide-item-content-poster">
-          <img src={apiConfig.w500Image(item.poster_path)}  alt="poster image" />
-         </div>
-      </div>
-    </div>
+        </div>
   )
 }
 
