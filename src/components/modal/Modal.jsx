@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import './modal.scss';
+import { BiUndo } from 'react-icons/bi'
 
 const Modal = (props) => {
 
@@ -39,7 +40,7 @@ export const ModalContent = props => {
         className="modal-content">
         {props.children}
         <div className="modal-content-close" onClick={closeModal}>
-         <i className='bx bx-x'></i>
+         <BiUndo/>
         </div>
         </div>
     )
