@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SwiperCore, { Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import tmdbApi, { category, movieType } from '../../api/tmdbApi';
+import tmdbApi, {  movieType } from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
 import './hero-slide.scss';
 import { useHistory } from 'react-router-dom';
@@ -36,13 +36,15 @@ const HeroSlide = () => {
             grabCursor={true}
             spaceBetween={0}
             slidesPerView={1}
-            // autoplay={{delay: 3500}}
+            autoplay={{delay: 3500}}
       >
          {
           movieItems.map((item,i) => (
             <SwiperSlide key={i}>
                 {({ isActive }) => (
-                  <HeroSlideItem item={item} className={`${isActive ? 'active' : '' }`}/>
+                  <HeroSlideItem 
+                  item={item} 
+                  className={`${isActive ? 'active' : '' }`}/>
                 )}
             </SwiperSlide>
           ))
@@ -64,26 +66,39 @@ const HeroSlideItem = props => {
 
   return (
     <div
-            className={`hero-slide__item ${props.className}`}
+            className={`hero-slide-item ${props.className}`}
             style={{backgroundImage: `url(${background})`}}
         >
-            <div className="hero-slide__item__content container">
-                <div className="hero-slide__item__content__info">
+            <div className="hero-slide-item-content container">
+
+                <div className="hero-slide-item-content-info">
+
                     <h2 className="title">{item.title}</h2>
+
                     <div className="overview">{item.overview}</div>
+
                     <div className="btns">
+
                         <Button onClick={() => history.push('/movie/' + item.id)}>
                             Watch now
                         </Button>
+
                         <OutLineButton onClick={() => console.log('a')}>
                             Watch trailer
                         </OutLineButton>
+
                     </div>
+
                 </div>
+
                 <div className="hero-slide-item-content-poster">
+
                     <img src={apiConfig.w500Image(item.poster_path)} alt="" />
+                
                 </div>
+
             </div>
+
         </div>
   )
 }
