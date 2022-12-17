@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Button from '../button/Button';
 import { category } from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
-import { BiLeftArrow } from "react-icons/bi";
+import { BiRightArrow } from "react-icons/bi";
 
 const MovieCard = (props) => {
 
@@ -18,7 +18,7 @@ const MovieCard = (props) => {
     <Link to={link}>
        <div className='movie-card' style={{backgroundImage: `url(${bg})`}}>
         <Button>
-             <BiLeftArrow />
+             <BiRightArrow />
         </Button>
        </div>
        <h3>{item.title || item.name}</h3>

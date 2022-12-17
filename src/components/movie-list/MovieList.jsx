@@ -1,15 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
-
 import './movielist.scss';
-
 import { SwiperSlide, Swiper} from 'swiper/react'
-
-// import { Link } from 'react-router-dom';
-// import Button from '../button/Button';
-
+import { Link } from 'react-router-dom';
+import Button from '../button/Button';
 import tmdbApi, { category } from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
+import MovieCard from '../movieCard/MovieCard';
+
+
 
 const MovieList = (props) => {
 
@@ -50,7 +49,9 @@ const MovieList = (props) => {
         {
             items.map((item, i) => (
                 <SwiperSlide key={i}>
-                    <img src={apiConfig.w500Image(item.poster_path)} alt="swiper" />
+                    <MovieCard 
+                    item={item} 
+                    category={props.category}/>
                 </SwiperSlide>
             ))
         }
