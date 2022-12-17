@@ -1,16 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
+
 import './movielist.scss';
-import { SwiperSlide,Swiper } from 'swiper/swiper-react';
-import { Link } from 'react-router-dom';
-import Button from '../button/Button';
+
+import { SwiperSlide, Swiper} from 'swiper/react'
+
+// import { Link } from 'react-router-dom';
+// import Button from '../button/Button';
 
 import tmdbApi, { category } from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
 
 const MovieList = (props) => {
 
-  const [item, setItems] = useState([]);
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
    const getList = async () => {
@@ -19,12 +22,12 @@ const MovieList = (props) => {
 
     if(props.type !== 'similar'){
 
-    switch(props.category){
+    switch(props.category) {
         case category.movie: 
-        response =  await tmdbApi.getMoviesList(props.type, {params});
+             response =  await tmdbApi.getMoviesList(props.type, {params});
         break;
         default: 
-        response = await tmdbApi.getTvList(props.type, {params})
+             response = await tmdbApi.getTvList(props.type, {params})
       }
 
     }
@@ -34,12 +37,24 @@ const MovieList = (props) => {
     setItems(response.results);
    }
    getList();
-  }, []);
+  });
 
 
   return (
-    <div>
-      
+    <div className='movie-list'>
+       <Swiper
+          grabCursor={true}
+          spaceBetween={10}
+          slidesPerView={'auto'}
+       >
+        {
+            items.map((item, i) => (
+                <SwiperSlide key={i}>
+                    <img src={apiConfig.w500Image(item.poster_path)} alt="swiper" />
+                </SwiperSlide>
+            ))
+        }
+       </Swiper>
     </div>
   )
 }
