@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import Home from '../pages/Home';
 import Catalog from '../pages/Catalog';
 import Detail from '../pages/Detail';
@@ -9,20 +9,20 @@ const Routes = () => {
     <Switch>
         <Route 
         path='/:category/search/:keyword'
-        component={Catalog}
+        component={withRouter(Catalog)}
         />
         <Route 
         path='/:category/:id'
-        component={Detail}
+        component={withRouter(Detail)}
         />
         <Route 
         path='/:category'
-        component={Catalog}
+        component={withRouter(Catalog)}
         />
         <Route 
-        path='/'
+        path="/"
         exact
-        component={Home}
+        component={withRouter(Home)}
         />
     </Switch>
   )
