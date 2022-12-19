@@ -22,8 +22,17 @@ function Footer() {
         <Link to='/'>About Us</Link>
       </div>
       <div className="footer-content-menu">
-        
+        <Link to='/'>Live</Link>
+        <Link to='/'>FAQ</Link>
+        <Link to='/'>Premium</Link>
+        <Link to='/'>Privacy Policy</Link>
       </div>
+      <div className="footer-content-menu">
+        <Link to='/'>You must watch</Link>
+        <Link to='/'>Recent release</Link>
+        <Link to='/'>Top IMDB</Link>
+      </div>
+      
      </div>
     </div>
   )
