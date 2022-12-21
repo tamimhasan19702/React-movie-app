@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import './moviegrid.scss';
 import MovieCard from '../movieCard/MovieCard';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import tmdbApi, { category, movieType, tvType } from '../../api/tmdbApi';
 import { OutLineButton } from '../button/Button';
+import Input from '../input/Input';
+
 
 const MovieGrid = (props) => {
 
@@ -89,6 +91,37 @@ const MovieGrid = (props) => {
     }
     </>
   )
+}
+
+
+const MovieSearch = props => {
+
+    const history = useHistory();
+
+    const [keyword , setKeyword] = useState(props.keyword ? props.keyword : '');
+
+    const gotoSearch = useCallback(
+        () => {
+            if(keyword.trim().length > 0){
+                history.push(`${category[props.category]}/search/${keyword}`);
+            }
+        },
+        [keyword, props.category, history]
+    );
+
+
+    
+
+    return (
+        <div className='movie-search'>
+        <Input 
+        type = 'text'
+        placeholder = 'Enter Keyword'
+        value ={keyword}
+        onChange={(e) => setKeyword(e.target.value)}
+        />
+        </div>
+    )
 }
 
 export default MovieGrid
