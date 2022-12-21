@@ -3,7 +3,7 @@ import './moviegrid.scss';
 import MovieCard from '../movieCard/MovieCard';
 import { useHistory, useParams } from 'react-router-dom';
 import tmdbApi, { category, movieType, tvType } from '../../api/tmdbApi';
-import { OutLineButton } from '../button/Button';
+import Button, { OutLineButton } from '../button/Button';
 import Input from '../input/Input';
 
 
@@ -77,6 +77,9 @@ const MovieGrid = (props) => {
 
   return (
     <>
+    <div className="section mb-3">
+        <MovieSearch category={props.category} keyword={keyword}/>
+    </div>
     <div className='movie-grid'>
       {
         items.map((item, i) => <MovieCard category={props.category} item={item} key={i}/>)
@@ -109,8 +112,20 @@ const MovieSearch = props => {
         [keyword, props.category, history]
     );
 
+    useEffect(() => {
+        const enterEvent = (e) => {
+            e.preventDefault();
+            if(e.keyCode === 13){
+                gotoSearch();
+            }
+        }
+        document.addEventListener('keyup', enterEvent);
+        return () => {
+            document.removeEventListener('keyup', enterEvent);
+        };
+    }, [keyword, gotoSearch])
 
-    
+
 
     return (
         <div className='movie-search'>
@@ -120,6 +135,7 @@ const MovieSearch = props => {
         value ={keyword}
         onChange={(e) => setKeyword(e.target.value)}
         />
+        <Button className='small' onClick={gotoSearch}>Search</Button>
         </div>
     )
 }
