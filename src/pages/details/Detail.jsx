@@ -4,6 +4,7 @@ import tmdbApi from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
 import './detail.scss';
 import Cast from './Cast';
+import VideoList from './VideoList';
 
 const Detail = () => {
 
@@ -60,7 +61,13 @@ const Detail = () => {
               </div>
              </div>
           
-          </div>          
+          </div> 
+
+          <div className="container">
+            <div className="section mb-3">
+             <VideoList id={item.id}/>
+            </div>
+          </div>        
           
           </>
         )

@@ -10,24 +10,35 @@ function VideoList(props) {
 
   useEffect(() => {
     const getvideos = async () => {
-        const res = await tmdbApi.credits(category, props.id);
-        setCasts(res.cast.slice(0,5));
+        const res = await tmdbApi.getVideos(category, props.id);
+        setvideos(res.results.slice(0,5));
     }
-    getCredits();
+    getvideos();
   }, [category, props.id])
 
   return (
-    <div>VideoList</div>
+    <div>
+      {
+        videos.map((item, i) => (
+          <Video key={i} item={item}/>
+        ))
+      }
+    </div>
   )
 }
 
 
 
-const video = props => {
+const Video = props => {
     
     const item = props.item;
 
     const iframeRef = useRef(null);
+
+    useEffect(() => {
+      const height = iframeRef.current.offsetWidth * 9 / 16 + 'px';
+      iframeRef.current.setAttribute('height', height);
+    },[])
     
     return(
       <div className="video">
