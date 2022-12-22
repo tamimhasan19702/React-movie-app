@@ -17,12 +17,13 @@ function Cast(props) {
     getCredits();
   }, [category, props.id])
 
+
   return (
     <div className='casts'>
         {
          casts.map((item, i) => (
             <div key={i} className='casts-item'>
-              <div className="casts item img" style={{backgroundImage: `url(${apiConfig.w500Image(item.profile_path)})`}}></div>
+              <div className="casts-item-img" style={{backgroundImage: `url(${apiConfig.w500Image(item.profile_path)})`}}></div>
               <p className='casts-item-name'>{item.name}</p>
             </div>
          ))
