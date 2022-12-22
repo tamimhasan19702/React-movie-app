@@ -33,9 +33,25 @@ const Detail = () => {
 
                 </div>
              </div>  
+
              <div className="movie-content-info">
-              
+              <div className="title">
+              {
+              item.title || item.name
+              }  
+              </div> 
+              <div className="genres">
+                {
+                item.genres && item.genres.slice(0,5).map((genre, i ) => (
+                  <span key={i}>{genre.name}</span>
+                ))
+                }
+              </div>
+              <p className="overview">
+                {item.overview}
+              </p>
              </div>
+          
           </div>          
           
           </>

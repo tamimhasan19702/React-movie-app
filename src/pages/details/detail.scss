@@ -46,7 +46,26 @@
         }
 
         &-img{
-            
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: $border-radius;
+            padding-top: 165%;
         }
     } 
+
+    &-info{
+        width: 70%;
+        padding-left: 2rem;
+        position: relative;
+
+        @include mobile{
+            width: 100%;
+            padding-left: 0;
+        }
+
+        & > * {
+            margin-bottom: 2rem;
+        }
+    }
 }
