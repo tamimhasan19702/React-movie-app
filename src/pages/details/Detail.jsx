@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import tmdbApi from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
 import './detail.scss';
+import Cast from './Cast';
 
 const Detail = () => {
 
@@ -35,21 +36,28 @@ const Detail = () => {
              </div>  
 
              <div className="movie-content-info">
-              <div className="title">
+              <h1 className="title">
               {
               item.title || item.name
               }  
-              </div> 
+              </h1> 
               <div className="genres">
                 {
                 item.genres && item.genres.slice(0,5).map((genre, i ) => (
-                  <span key={i}>{genre.name}</span>
+                  <span key={i} className='genres-items'>{genre.name}</span>
                 ))
                 }
               </div>
               <p className="overview">
                 {item.overview}
               </p>
+
+              <div className="cast">
+                <div className="section-header">
+                  <h2>Casts</h2>
+                </div>
+                <Cast id={item.id}/>
+              </div>
              </div>
           
           </div>          
