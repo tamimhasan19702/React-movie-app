@@ -14,19 +14,23 @@ function Footer() {
         <Link to='/'>Movies</Link>
       </div>
      </div>
+
      <div className="footer-content-menus">
+      
       <div className="footer-content-menu">
         <Link to='/'>Home</Link>
         <Link to='/'>Contact Us</Link>
         <Link to='/'>Terms of Service</Link>
         <Link to='/'>About Us</Link>
       </div>
+
       <div className="footer-content-menu">
         <Link to='/'>Live</Link>
         <Link to='/'>FAQ</Link>
         <Link to='/'>Premium</Link>
         <Link to='/'>Privacy Policy</Link>
       </div>
+
       <div className="footer-content-menu">
         <Link to='/'>You must watch</Link>
         <Link to='/'>Recent release</Link>
@@ -34,6 +38,7 @@ function Footer() {
       </div>
       
      </div>
+     
     </div>
   )
 }
