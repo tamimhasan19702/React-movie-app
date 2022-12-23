@@ -1,40 +1,43 @@
-@use '../../scss/' as *;
+@use "../../scss/" as *;
 
-.footer{
+.footer {
     position: relative;
     padding: 6rem 2rem;
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
+    width: 100%;
 
-    &-content{
+    &-content {
         max-width: 1000px;
-    
-       &-logo{
-        @include flex(center,center);
-        margin-bottom: 3rem;
-       }
 
-       &-menus{
-        display: grid;
-        grid-template-columns: repeat(3,1fr);
-
-        @include mobile{
-            grid-template-columns: repeat(2,1fr);
+        &-logo {
+            text-align: left;
+            margin-bottom: 3rem;
         }
-       }
 
-       &-menu{
-        @include flex(flex-start, flex-start);
-        flex-direction: column;
-        margin-top: 1rem;
+        &-menus {
+            display: grid;
+            width: 100%;
+            @include flex(center, space-around);
+            grid-template-columns: repeat(3, 1fr);
 
-        font-size: 1.5rem;
-        font-weight: 600;
+            @include mobile {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
 
-        & > * ~ * {
+        &-menu {
+            @include flex(flex-start, flex-start);
+            flex-direction: column;
             margin-top: 1rem;
+
+            font-size: 1.5rem;
+            font-weight: 600;
+
+            & > * ~ * {
+                margin-top: 1rem;
+            }
         }
-       }
     }
 }
