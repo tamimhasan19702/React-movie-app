@@ -14,11 +14,13 @@ class SignIn extends Component {
     }
   }
 
-  // handleSubmit = async e => {
-  //   e.preventDefault();
+  handleSubmit = async e => {
+    e.preventDefault();
 
-  //   const {email}
-  // }
+    const {email,password} = this.state;
+
+   
+  }
 
  
   handleChange = e => {
@@ -58,7 +60,7 @@ class SignIn extends Component {
          <Button type='submit'> Sign In</Button>
 
          <OutLineButton 
-         onClick = {signInWithGoogle}
+        
          >Sign In With Google</OutLineButton>
 
          </div>        
