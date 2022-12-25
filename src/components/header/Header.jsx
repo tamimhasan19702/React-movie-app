@@ -2,6 +2,7 @@ import React,{useEffect, useRef} from 'react';
 import './header.scss';
 import Logo from '../../assets/logo-update.png';
 import { Link,useLocation } from 'react-router-dom';
+import { auth } from '../../firebase/firebase.utils';
 
 
 const headerNav = [
@@ -16,14 +17,11 @@ const headerNav = [
     {
         display: 'Tv Series',
         path: '/tv'
-    },
-    {
-        display: 'Sign In',
-        path: '/sign-in'
     }
+
 ];
 
-function Header() {
+function Header({ currentUser }) {
 
   const { pathname } = useLocation();
   const headerRef = useRef(null);
@@ -64,7 +62,27 @@ function Header() {
 
                         </li>
                     ))
+                          
                 }
+                    <li>
+                        
+                        {
+                        currentUser ? (
+                            <div  
+                            onClick={() => auth.signOut()}
+                            className=''>
+                            Sign Out
+                            </div>
+                        ) : (
+                            <Link 
+                            to='./sign-in'
+                            className='active'>
+                            Sign In
+                            </Link>
+                        )
+                        }
+
+                    </li>
             </ul>
         </div>
     </div>
