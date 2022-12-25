@@ -3,7 +3,7 @@
 @mixin shrinkLabel {
     top: -14px;
     font-size: 12px;
-    color: $white;
+    color: $main-color;
 }
 
 .group{
@@ -12,15 +12,15 @@
 
     .form-input{
         background: none;
-        background-color: $main-color;
-        color: $white;
+        background-color: $white;
+        color: $black;
         font-size: 18px;
         padding: 10px 10px 10px 5px;
         display: block;
         width: 100%;
         border: none;
         border-radius: 0;
-        border-radius: 1px solid $white;
+        border-bottom: 2px solid $main-color;
         margin: 25px 0;
 
         &:focus{
@@ -37,7 +37,7 @@
     }
 
     .form-input-label{
-        color: $white;
+        color: $main-color;
         font-size: 16px;
         font-weight: normal;
         position: absolute;
@@ -47,7 +47,7 @@
         transition: 300ms ease all;
     
          &.shrink{
-        @include shrinkLabel();
+          @include shrinkLabel();
        }
     }
 }
