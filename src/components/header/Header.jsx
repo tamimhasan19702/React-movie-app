@@ -16,6 +16,10 @@ const headerNav = [
     {
         display: 'Tv Series',
         path: '/tv'
+    },
+    {
+        display: 'Sign In',
+        path: '/sign-in'
     }
 ];
 
