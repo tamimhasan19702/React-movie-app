@@ -3,6 +3,7 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import Home from '../pages/Home';
 import Catalog from '../pages/Catalog';
 import Detail from '../pages/details/Detail';
+import SignInSignOut from '../pages/sign-in-sign-up/Sign-in-sign-out';
 
 const Routes = () => {
   return (
@@ -10,6 +11,10 @@ const Routes = () => {
         <Route 
         path='/:category/search/:keyword'
         component={withRouter(Catalog)}
+        />
+        <Route 
+        path='/sign-in'
+        component={withRouter(SignInSignOut)}
         />
         <Route 
         path='/:category/:id'
