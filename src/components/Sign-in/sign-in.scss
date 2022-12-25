@@ -1,0 +1,10 @@
+.sign-in{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+
+    .buttons{
+        display: flex;
+        gap: 30px;
+    }
+}
