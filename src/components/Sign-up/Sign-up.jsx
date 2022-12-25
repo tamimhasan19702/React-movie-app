@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { Component } from 'react';
+import './sign-up.scss';
 
-const SignUp = () => {
-  return (
-    <div>
-      
-    </div>
-  )
+class SignUp extends Component {
+  render() {
+    return (
+      <div>
+        sign-up
+      </div>
+    )
+  }
 }
+
 
 export default SignUp
