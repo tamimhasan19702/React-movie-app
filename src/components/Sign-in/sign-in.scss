@@ -4,9 +4,11 @@
     width: 500px;
     display: flex;
     flex-direction: column;
+    
 
     @include tablet{
         width: 100%;
+        margin-bottom: 100px;
     }
 
     @include mobile{
