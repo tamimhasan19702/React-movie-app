@@ -34,8 +34,7 @@ class App extends Component {
               id: snapshot.id,
               ...snapshot.data()
             }
-          }, 
-          () => {
+          }, () => {
             console.log(this.state)
           }
           );
@@ -43,7 +42,9 @@ class App extends Component {
       
       }
 
-      this.setState({ currentUser: userAuth });
+      this.setState({ 
+        currentUser: userAuth 
+      });
     });
   }
 

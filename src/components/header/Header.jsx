@@ -3,6 +3,7 @@ import './header.scss';
 import Logo from '../../assets/logo-update.png';
 import { Link,useLocation } from 'react-router-dom';
 import { auth } from '../../firebase/firebase.utils';
+import logo from '../../assets/user.png'
 
 
 const headerNav = [
@@ -68,11 +69,15 @@ function Header({ currentUser }) {
 
                     {
                         currentUser ? (
-                            <div  
+                            <span className='userImg'>
+                             <img src={logo} alt="user" />
+                            <Link  
                             onClick={() => auth.signOut()}
-                            className='sign-out'>
+                            className='sign-out'
+                            to='./'>
                             Sign Out
-                            </div>
+                            </Link>
+                            </span>
                         ) : (
                             <Link 
                             to='./sign-in'

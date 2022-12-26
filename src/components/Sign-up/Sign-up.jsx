@@ -45,7 +45,7 @@ class SignUp extends Component {
     });
 
     }catch(error){
-    console.error(error);
+    alert(error)
     }
   }
 
@@ -105,7 +105,8 @@ class SignUp extends Component {
         required
         />
 
-       <Button type='submit'>SIGN UP</Button>
+       <Button 
+       type="submit">SIGN UP</Button>
 
        </form>
         

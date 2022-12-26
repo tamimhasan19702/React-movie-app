@@ -18,13 +18,14 @@ class SignIn extends Component {
   handleSubmit = async e => {
     e.preventDefault();
 
-    const {email,password} = this.state;
+    const { email,password } = this.state;
 
     try{
       await auth.signInWithEmailAndPassword(email,password);
       this.setState({ email: '', password: '' });
+      alert(`Logged in Successfully`);
     }catch(error){
-      console.log(error)
+      alert(error);
     }
 
   }
@@ -44,7 +45,7 @@ class SignIn extends Component {
          <h2>I already have an account</h2>
          <span>Sign in with your email and password</span>
 
-         <form>
+         <form onSubmit={this.handleSubmit} >
 
          <FormInput 
          name="email"
@@ -55,12 +56,12 @@ class SignIn extends Component {
          label='Email'/>        
          
          <FormInput 
-         name="password"
-         value={this.state.password}
-         required
-         handleChange={this.handleChange}
-         type='password'
-         label='Password'/>
+        name='password' 
+        value={this.state.password} 
+        required
+        handleChange={this.handleChange} 
+        type='password'
+        label='Password'/>
 
          <div className="buttons">
           

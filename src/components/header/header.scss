@@ -80,6 +80,26 @@
                 cursor: pointer;
             }
 
+
+
+            & .userImg{
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+
+                & img{
+                    width: 30px;
+                    height: 30px;  
+                    
+                    @include tablet{
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+
         }
 
     
