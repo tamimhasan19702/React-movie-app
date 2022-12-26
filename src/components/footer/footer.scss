@@ -7,12 +7,22 @@
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
+   
 
     &-content {
-        max-width: 1000px;
+        width: 78%;
+        text-align: left;
+
+        @include tablet{
+            width: 85%;
+        }
+
+        @include mobile{
+            width: 90%;
+        }
 
         &-logo {
-            text-align: left;
+            
             margin-bottom: 3rem;
         }
 

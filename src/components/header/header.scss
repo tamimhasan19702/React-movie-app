@@ -72,6 +72,10 @@
                 width: 100%;
             }
 
+            & .sign-out{
+                cursor: pointer;
+            }
+
         }
 
         @include mobile{

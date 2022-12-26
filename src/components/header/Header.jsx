@@ -64,13 +64,13 @@ function Header({ currentUser }) {
                     ))
                           
                 }
-                    <li>
-                        
-                        {
+                <li>
+
+                    {
                         currentUser ? (
                             <div  
                             onClick={() => auth.signOut()}
-                            className=''>
+                            className='sign-out'>
                             Sign Out
                             </div>
                         ) : (
@@ -80,9 +80,10 @@ function Header({ currentUser }) {
                             Sign In
                             </Link>
                         )
-                        }
+                     }
 
-                    </li>
+                </li>
+                
             </ul>
         </div>
     </div>
