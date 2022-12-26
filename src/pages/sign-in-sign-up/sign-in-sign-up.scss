@@ -9,6 +9,7 @@
     @include tablet{
         width: 60%;
         display: flex;
+        margin: 100px auto;
         flex-direction: column;
     }
 

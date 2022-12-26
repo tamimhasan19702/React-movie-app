@@ -1,10 +1,26 @@
+@use '../../scss/' as *;
+
 .sign-in{
     width: 500px;
     display: flex;
     flex-direction: column;
+    
+
+    @include tablet{
+        width: 100%;
+        margin-bottom: 100px;
+    }
+
+    @include mobile{
+        width: 90%;
+    }
 
     .buttons{
         display: flex;
         gap: 30px;
+
+    @include mobile{
+        gap: 10px;
+    }    
     }
 }

@@ -55,6 +55,10 @@
             font-size: 1.5rem;
             position: relative;
 
+            @include tablet{
+                font-size: 1.2rem;
+            }
+
             &::after{
                 content: '';
                 position: absolute;
@@ -72,7 +76,33 @@
                 width: 100%;
             }
 
+            & .sign-out{
+                cursor: pointer;
+            }
+
+
+
+            & .userImg{
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+
+                & img{
+                    width: 30px;
+                    height: 30px;  
+                    
+                    @include tablet{
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+
         }
+
+    
 
         @include mobile{
             position: fixed;
