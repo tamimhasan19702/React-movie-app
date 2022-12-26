@@ -43,7 +43,7 @@ class SignUp extends Component {
       password: '',
       confirmPassword: ''
     });
-
+    alert('Successfully Created Account and Logged In!!')
     }catch(error){
     alert(error)
     }
