@@ -23,10 +23,11 @@ class SignIn extends Component {
     try{
       await auth.signInWithEmailAndPassword(email,password);
       this.setState({ email: '', password: '' });
-      alert(`Logged in Successfully`);
     }catch(error){
       alert(error);
     }
+
+    window.location.href = './'
 
   }
 

@@ -47,6 +47,8 @@ class SignUp extends Component {
     }catch(error){
     alert(error)
     }
+
+    window.location.href = './'
   }
 
 

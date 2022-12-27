@@ -52,7 +52,7 @@
         li{
             padding: 5px 0;
             font-weight: 500;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             position: relative;
 
             @include tablet{
@@ -81,6 +81,13 @@
             }
 
 
+        }
+
+        & .logins{
+            display: flex;
+            @include flex(center,center);
+            gap: 10px;
+            
 
             & .userImg{
                 cursor: pointer;
@@ -98,8 +105,26 @@
                         height: 20px;
                     }
                 }
+
+                & .userText{
+                   
+                   
+                    @include tablet{
+                     & .welcome{
+                        display: none;
+                     }    
+                    }
+                }
+
+                & .button .link{
+                    color: $white;
+                }
             }
 
+            & .button .link{
+                color: $white;
+            }    
+            
         }
 
     

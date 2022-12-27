@@ -4,6 +4,7 @@ import Logo from '../../assets/logo-update.png';
 import { Link,useLocation } from 'react-router-dom';
 import { auth } from '../../firebase/firebase.utils';
 import logo from '../../assets/user.png'
+import Button from '../button/Button';
 
 
 const headerNav = [
@@ -65,29 +66,38 @@ function Header({ currentUser }) {
                     ))
                           
                 }
-                <li>
 
-                    {
+                <div className="logins">
+                {
                         currentUser ? (
-                            <span className='userImg'>
+                            <div className='userImg'>
+
                              <img src={logo} alt="user" />
+
+                             <p className='userText'><span className='welcome'>Welcome, </span>{currentUser.displayName}</p>
+
+                             <Button
+                             className='button'>
                             <Link  
                             onClick={() => auth.signOut()}
-                            className='sign-out'
+                            className='link'
                             to='./'>
                             Sign Out
                             </Link>
-                            </span>
+                             </Button>
+                             
+                            </div>
                         ) : (
+                            <Button className='button'>
                             <Link 
                             to='./sign-in'
-                            className='active'>
+                            className='link'>
                             Sign In
                             </Link>
+                            </Button>
                         )
                      }
-
-                </li>
+                </div>
                 
             </ul>
         </div>
