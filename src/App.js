@@ -61,7 +61,7 @@ class App extends Component {
                 <Header 
                 {...props} 
                 currentUser={this.state.currentUser}/>
-                <Routes />
+                <Routes currentUser={this.state.currentUser}/>
                 <Footer/>
                 </>
                )}
@@ -71,5 +71,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;

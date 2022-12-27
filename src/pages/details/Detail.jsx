@@ -6,21 +6,28 @@ import './detail.scss';
 import Cast from './Cast';
 import VideoList from './VideoList';
 import MovieList from '../../components/movie-list/MovieList';
+import DemoVideo from '../../components/demovideo/DemoVideo';
+
+
 
 const Detail = () => {
 
   const { category,id } = useParams();
   const [item, setItem] = useState(null);
 
+  
+
   useEffect(() => {
     const getDetail = async () => {
       const response = await tmdbApi.detail(category,id, {params:{}});
       setItem(response);
       window.scrollTo(0,0);
+
     }
     getDetail();
   }, [category, id]);
   
+
   
   return (
     <>
@@ -38,11 +45,13 @@ const Detail = () => {
              </div>  
 
              <div className="movie-content-info">
+
               <h1 className="title">
               {
               item.title || item.name
               }  
-              </h1> 
+              </h1>
+
               <div className="genres">
                 {
                 item.genres && item.genres.slice(0,5).map((genre, i ) => (
@@ -50,6 +59,7 @@ const Detail = () => {
                 ))
                 }
               </div>
+
               <p className="overview">
                 {item.overview}
               </p>
@@ -60,20 +70,30 @@ const Detail = () => {
                 </div>
                 <Cast id={item.id}/>
               </div>
+
              </div>
           
           </div> 
 
+
           <div className="container">
+
             <div className="section mb-3">
+                  <DemoVideo/>
+            </div>
+
+            <div className="section mb-3">
+              <h1>Trailers</h1>
              <VideoList id={item.id}/>
             </div>
+
             <div className="section mb-3">
               <div className="section-header mb-2">
                 <h2>Similar</h2>
               </div>
               <MovieList category={category} type='similar' id={item.id}/>
             </div>
+
           </div>        
           
           </>

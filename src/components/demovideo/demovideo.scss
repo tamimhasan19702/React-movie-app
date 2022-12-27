@@ -1,0 +1,15 @@
+@use '../../scss/' as *;
+
+.serverText{
+     text-align: center;
+     width: 100%;
+     margin: 20px 0;
+
+    & .serverName{
+        display: flex;
+        @include flex(center,center);
+        margin-top: 20px;
+        margin-bottom: 50px;
+        gap: 20px;
+    }
+}

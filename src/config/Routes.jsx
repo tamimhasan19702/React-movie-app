@@ -6,6 +6,7 @@ import Detail from '../pages/details/Detail';
 import SignInSignOut from '../pages/sign-in-sign-up/Sign-in-sign-out';
 
 const Routes = () => {
+
   return (
     <Switch>
         <Route 
@@ -31,6 +32,7 @@ const Routes = () => {
         />
     </Switch>
   )
+  
 }
 
 export default Routes
