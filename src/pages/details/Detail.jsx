@@ -10,7 +10,7 @@ import DemoVideo from '../../components/demovideo/DemoVideo';
 
 
 
-const Detail = () => {
+const Detail = ({currentUser}) => {
 
   const { category,id } = useParams();
   const [item, setItem] = useState(null);
@@ -79,7 +79,7 @@ const Detail = () => {
           <div className="container">
 
             <div className="section mb-3">
-                  <DemoVideo/>
+                  <DemoVideo currentUser={currentUser}/>
             </div>
 
             <div className="section mb-3">

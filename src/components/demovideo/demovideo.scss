@@ -13,3 +13,17 @@
         gap: 20px;
     }
 }
+
+.login-alert{
+margin: 150px 0;
+text-align: center;
+
+   h1{
+    margin: 20px 0;
+   }
+
+   & .button .link{
+    color: $white;
+   }
+
+}

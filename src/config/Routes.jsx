@@ -5,7 +5,8 @@ import Catalog from '../pages/Catalog';
 import Detail from '../pages/details/Detail';
 import SignInSignOut from '../pages/sign-in-sign-up/Sign-in-sign-out';
 
-const Routes = () => {
+const Routes = ({ currentUser }) => {
+
 
   return (
     <Switch>
@@ -13,23 +14,30 @@ const Routes = () => {
         path='/:category/search/:keyword'
         component={withRouter(Catalog)}
         />
+
         <Route 
         path='/sign-in'
         component={withRouter(SignInSignOut)}
         />
+
         <Route 
         path='/:category/:id'
-        component={withRouter(Detail)}
-        />
+        >
+
+        <Detail currentUser={currentUser}/>
+        </Route>
+
         <Route 
         path='/:category'
         component={withRouter(Catalog)}
         />
+
         <Route 
         path="/"
         exact
         component={withRouter(Home)}
         />
+
     </Switch>
   )
   
