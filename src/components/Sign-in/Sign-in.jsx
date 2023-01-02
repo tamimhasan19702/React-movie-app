@@ -22,12 +22,23 @@ class SignIn extends Component {
 
     try{
       await auth.signInWithEmailAndPassword(email,password);
-      this.setState({ email: '', password: '' });
+
+      this.setState({ 
+        email: '',
+        password: '',
+     });
+
+      window.location.href = './'
+
     }catch(error){
-      alert(error);
+     alert(error);
+     this.setState({ 
+      email: '',
+      password: '',
+   });
     }
 
-    window.location.href = './'
+    
 
   }
 
@@ -45,6 +56,7 @@ class SignIn extends Component {
       <div className='sign-in'>
          <h2>I already have an account</h2>
          <span>Sign in with your email and password</span>
+
 
          <form onSubmit={this.handleSubmit} >
 
@@ -74,7 +86,12 @@ class SignIn extends Component {
 
          </div>        
 
+
          </form>
+
+
+
+         
       </div>
     )
   }

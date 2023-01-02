@@ -4,6 +4,7 @@ import FormInput from '../FormInput/FormInput';
 import Button from '../button/Button';
 import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 import './sign-up.scss';
+// import danger from '../../assets/40143-1-danger-ahead-image-free-transparent-image-hd.png';
 
 class SignUp extends Component {
  
@@ -21,10 +22,10 @@ class SignUp extends Component {
   handleSubmit = async e => {
     e.preventDefault();
 
-    const  { displayName, email, password, confirmPassword } = this.state;
+    const  { displayName, email, password, confirmPassword} = this.state;
 
     if( password !== confirmPassword ){
-      alert(`Password don't match!!`);
+       alert(`Password doesn't match`)
       return;
     }
  
@@ -41,14 +42,24 @@ class SignUp extends Component {
       displayName: '',
       email: '',
       password: '',
-      confirmPassword: ''
+      confirmPassword: '',
     });
     alert('Successfully Created Account and Logged In!!')
+    window.location.href = './'
     }catch(error){
-    alert(error)
+  
+    alert(error);
+
+    this.setState({
+      displayName:'',
+      email: '',
+      password: '',
+      confirmPassword: ''
+    })
+
     }
 
-    window.location.href = './'
+    
   }
 
 
@@ -67,6 +78,10 @@ class SignUp extends Component {
       <div className='sign-up'>
         <h2 className='title'>I do not have a account</h2>
         <span>Sign up with your email and password</span>
+
+       <div className='error'>
+       <h1 className='errorMessage'>{this.state.errorMessage}</h1>
+       </div>
 
        <form className='sign-up-form' onSubmit={this.handleSubmit}>
 
@@ -111,7 +126,8 @@ class SignUp extends Component {
        type="submit">SIGN UP</Button>
 
        </form>
-        
+
+       
 
       </div>
     )

@@ -97,23 +97,25 @@
                 gap: 10px;
 
                 & img{
-                    width: 30px;
-                    height: 30px;  
-                    
+                    width: 20px;
+                    height: 20px;
+                                
                     @include tablet{
-                        width: 20px;
-                        height: 20px;
+                        width: 15px;
+                        height: 15px;
                     }
                 }
 
                 & .userText{
-                   
-                   
+
+                                      
                     @include tablet{
                      & .welcome{
                         display: none;
                      }    
+
                     }
+
                 }
 
                 & .button .link{
