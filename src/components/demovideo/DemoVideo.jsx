@@ -1,12 +1,12 @@
 import React from 'react'
 import Button, { OutLineButton } from '../button/Button';
-import { Link } from 'react-router-dom';
 import './demovideo.scss';
+import { connect } from 'react-redux';
 
 function DemoVideo({currentUser}) {
 
 return( 
-        <div className="">
+        <div>
 
 {
     currentUser ? (
@@ -20,9 +20,9 @@ return(
             <div className="serverText">
             <p>If current server doesn't work please try other servers below.</p>
             <div className='serverName'>
-             <OutLineButton><a href="#">Server 1</a> </OutLineButton>
-             <OutLineButton><a href="#">Server 2</a> </OutLineButton>
-             <OutLineButton><a href="#">Server 3</a> </OutLineButton>
+             <OutLineButton><a href='./'>Server 1</a> </OutLineButton>
+             <OutLineButton><a href='./'>Server 2</a> </OutLineButton>
+             <OutLineButton><a href='./'>Server 3</a> </OutLineButton>
              </div>
              </div>
             </div>
@@ -45,5 +45,12 @@ return(
 )
 }
 
-export default DemoVideo
+
+const mapStateToProps = state => ({
+
+  currentUser: state.user.currentUser
+
+})
+
+export default connect(mapStateToProps)(DemoVideo)
 
