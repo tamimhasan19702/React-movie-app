@@ -5,6 +5,7 @@ import { Link,useLocation } from 'react-router-dom';
 import { auth } from '../../firebase/firebase.utils';
 import logo from '../../assets/user.png'
 import Button from '../button/Button';
+import { connect } from 'react-redux';
 
 
 const headerNav = [
@@ -105,4 +106,12 @@ function Header({ currentUser }) {
   )
 }
 
-export default Header
+const mapStateToProps = state => ({
+
+   currentUser: state.user.currentUser
+
+})
+
+
+
+export default connect()(Header)

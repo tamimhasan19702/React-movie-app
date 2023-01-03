@@ -59,9 +59,7 @@ class App extends Component {
      <div>
                <Route render={props => (
                 <>
-                <Header 
-                {...props} 
-                currentUser={this.state.currentUser}/>
+                <Header {...props}/>
                 <Routes currentUser={this.state.currentUser}/>
                 <Footer/>
                 </>
