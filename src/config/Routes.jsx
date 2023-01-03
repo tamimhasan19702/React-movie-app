@@ -22,10 +22,8 @@ const Routes = ({ currentUser }) => {
 
         <Route 
         path='/:category/:id'
-        >
-
-        <Detail currentUser={currentUser}/>
-        </Route>
+        component={withRouter(Detail)}
+        />
 
         <Route 
         path='/:category'
