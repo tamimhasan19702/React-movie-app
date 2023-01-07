@@ -7,7 +7,7 @@ import Cast from './Cast';
 import VideoList from './VideoList';
 import MovieList from '../../components/movie-list/MovieList';
 import DemoVideo from '../../components/demovideo/DemoVideo';
-
+import { connect } from 'react-redux';
 
 
 const Detail = ({currentUser}) => {
@@ -78,6 +78,10 @@ const Detail = ({currentUser}) => {
 
           <div className="container">
 
+            { currentUser ? (
+              <h1>sdds</h1>
+            ) : <h1>dss</h1>}
+
             <div className="section mb-3">
                   <DemoVideo currentUser={currentUser}/>
             </div>
@@ -103,4 +107,11 @@ const Detail = ({currentUser}) => {
   );
 }
 
-export default Detail
+const mapStateToProps = state => ({
+
+  currentUser: state.user.currentUser
+
+})
+
+export default connect(mapStateToProps)( Detail)
+

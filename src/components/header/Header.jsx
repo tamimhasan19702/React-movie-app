@@ -91,7 +91,7 @@ function Header({ currentUser }) {
                         ) : (
                             <Button className='button'>
                             <Link 
-                            to='./sign-in'
+                            to='/sign-in'
                             className='link'>
                             Sign In
                             </Link>
@@ -108,10 +108,9 @@ function Header({ currentUser }) {
 
 const mapStateToProps = state => ({
 
-   currentUser: state.user.currentUser
-
-})
-
-
-
-export default connect(mapStateToProps)(Header)
+    currentUser: state.user.currentUser
+  
+  })
+  
+  export default connect(mapStateToProps)(Header)
+  

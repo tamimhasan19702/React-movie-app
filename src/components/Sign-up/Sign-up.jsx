@@ -45,7 +45,9 @@ class SignUp extends Component {
       confirmPassword: '',
     });
     alert('Successfully Created Account and Logged In!!')
+
     window.location.href = './'
+
     }catch(error){
   
     alert(error);
