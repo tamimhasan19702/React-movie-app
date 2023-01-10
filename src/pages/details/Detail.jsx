@@ -103,7 +103,7 @@ const Detail = ({currentUser}) => {
 
             ) : (
               <div className='login-alert'>
-             <h1>Please Sign in to view the contents</h1>
+             <h1>Please Sign-in/Sign-up to view this content</h1>
              <Button className='button'>
                                  <a 
                                  href='https://tmmovie-website.web.app/sign-in'
