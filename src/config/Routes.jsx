@@ -1,11 +1,12 @@
 import React from 'react';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter} from 'react-router-dom';
 import Home from '../pages/Home';
 import Catalog from '../pages/Catalog';
 import Detail from '../pages/details/Detail';
 import SignInSignOut from '../pages/sign-in-sign-up/Sign-in-sign-out';
+import { connect } from 'react-redux';
 
-const Routes = ({ currentUser }) => {
+function Routes({currentUser}){
 
 
   return (
@@ -16,6 +17,7 @@ const Routes = ({ currentUser }) => {
         />
 
         <Route 
+        exact
         path='/sign-in'
         component={withRouter(SignInSignOut)}
         />
@@ -41,4 +43,12 @@ const Routes = ({ currentUser }) => {
   
 }
 
-export default Routes
+
+const mapStateToProps = state => ({
+
+  currentUser: state.user.currentUser
+
+})
+
+export default connect(mapStateToProps)(Routes)
+

@@ -7,7 +7,8 @@ import Cast from './Cast';
 import VideoList from './VideoList';
 import MovieList from '../../components/movie-list/MovieList';
 import DemoVideo from '../../components/demovideo/DemoVideo';
-
+import { connect } from 'react-redux';
+import Button from '../../components/button/Button';
 
 
 const Detail = ({currentUser}) => {
@@ -76,23 +77,42 @@ const Detail = ({currentUser}) => {
           </div> 
 
 
-          <div className="container">
+          <div>
 
+            { currentUser ? (
+            
+            <div className="container">
+            
             <div className="section mb-3">
-                  <DemoVideo currentUser={currentUser}/>
+              <DemoVideo currentUser={currentUser}/>
             </div>
 
             <div className="section mb-3">
               <h1>Trailers</h1>
-             <VideoList id={item.id}/>
-            </div>
+              <VideoList id={item.id}/>
+           </div>
 
-            <div className="section mb-3">
+           <div className="section mb-3">
               <div className="section-header mb-2">
                 <h2>Similar</h2>
               </div>
               <MovieList category={category} type='similar' id={item.id}/>
             </div>
+
+            </div>
+
+            ) : (
+              <div className='login-alert'>
+             <h1>Please Sign-in/Sign-up to view this content</h1>
+             <Button className='button'>
+                                 <a 
+                                 href='https://tmmovie-website.web.app/sign-in'
+                                 className='link'>
+                                 Sign In
+                                 </a>
+                                 </Button>
+                </div>
+         )}
 
           </div>        
           
@@ -103,4 +123,11 @@ const Detail = ({currentUser}) => {
   );
 }
 
-export default Detail
+const mapStateToProps = state => ({
+
+  currentUser: state.user.currentUser
+
+})
+
+export default connect(mapStateToProps)( Detail)
+
